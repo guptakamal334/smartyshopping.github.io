@@ -1,8 +1,4 @@
-<?php 
-echo "kamal";
 
-?>
-<?php
   require('top.php');
 ?>
     <div class="content">
