@@ -1,4 +1,7 @@
+<?php 
+echo "kamal";
 
+?>
 <?php
   require('top.php');
 ?>
