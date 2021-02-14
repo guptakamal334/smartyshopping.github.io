@@ -1,0 +1,226 @@
+<!-- <?php
+    require('connection_inc.php');
+    require('function_inc.php');
+    require('add_cart_inc.php');
+    
+    $obj= new add_to_cart();
+    $totalProduct=$obj->totalProduct();
+    
+    $cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
+    $cat_arr=array();
+    while($row=mysqli_fetch_assoc($cat_res)){
+        $cat_arr[]=$row;	
+    }
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTY SHOPPING</title>
+    <link rel="stylesheet" href="style/style.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="localhost/fontawesome-free-5.15.2-web/css/all.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!-- ---------------------------header----------------------------   -->
+   <div class="nav top">
+        <div class="contact">
+            <p><i class="fas fa-phone-alt"></i>+91 9555899891 &nbsp&nbsp&nbsp<i class="fas fa-envelope"></i>smarty@gmail.com</p>
+        </div>
+        <div class="btn login">
+        <!-- <?php
+            if(isset($_SESSION['USER_LOGIN'])) {
+                echo "<a href='logout.php'><i class='fas fa-sign-out-alt'></i>Log Out</a>";
+                echo '<a href=""><i class="fas fa-sign-out-alt"></i>YOUR ORDER</a>';
+            } else {
+                echo "<a href='signin.php'><i class='fas fa-sign-in-alt'></i>Sign In</a>";
+                echo "<a href='signup.php'><i class='fas fa-user-plus'></i>Sign Up</a>";    
+            }
+        
+        ?> -->
+            
+            
+        </div>
+    </div>
+    <div class="nav mid">
+        <div class="logo">
+            <a href="index.php"><h2><b> SMARTY SHOPPING</b></h2></a>
+        </div> 
+        <div class="search-box">
+            <form action="">
+                <input type="text" placeholder="Enter Search...."/>
+                <input type="submit" name="search" value="SEARCH" />
+            </form>
+        </div>
+        <div class="cartfav">
+          <a href=""><i class="far fa-heart"></i><sup>0</sup></a>
+          <a href="cart.php"><i class="fas fa-shopping-cart"></i><sup id="cart_count">
+              00
+            </sup></a>
+        </div>
+        
+    </div>
+    <div class="nav down">
+        <nav>
+            <ul id="MenuItems">
+            <!-- <?php
+                foreach($cat_arr as $list){
+            ?>
+            <li><a href="category.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
+            <?php
+                }
+            ?> -->
+                
+                <li><a href="contact.php">CONTACT US</a></li>
+                <li><a href="contact.php">CONTACT US</a></li><li><a href="contact.php">CONTACT US</a></li><li><a href="contact.php">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </div>  
+
+    <div class="path">
+        <a href="index.php">Home &nbsp;&nbsp;/</a> 
+        <a href="">cart &nbsp;/</a>
+        <a href="">Sign In</a>
+    </div>
+
+    <div class="row container-checkout">
+        <div class="checkout-form">
+            <div class="heading">
+                <h2 onclick="height1()">LOGIN DETAIL </h2>
+            </div>
+            <div class="row" id="check__form">
+                <div class="col-2 loign-form">
+                    <form action="" method="" class="checkout-sign" >
+                        <h4>Sign In</h4>
+                        <label for="">USERNAME</label>
+                        <input type="text" name="username" id="email" placeholder="Enter User Name....">
+                        <span id="error_email"></span>
+                        <label for="">PASSWORD</label>
+                        <input type="password" name="password" id="password" placeholder="Enter Password ...">
+                        <span id="error_password"></span>
+                        <button type="button" onclick="sign_in()">LOGIN</button>
+                        <span id="error_button"></span><br>
+                    </form>
+                </div>
+                <div class="col-2 registraion-form">
+                    <form class="checkout-registraion" id="signup">
+                        <h4>Sign Up</h4>
+                            <label for="">NAME</label>
+                            <input type="text" name="name" id="name" placeholder="Enter Name...." autocomplete="off">
+                            <span class="error_msg" id="error_name"></span>   
+                            <label for="">MOBILE NUMBER</label>
+                            <input type="text" name="mobile" id="mobile" placeholder="Enter Mobile Number...." autocomplete="off">
+                            <span class="error_msg" id="error_mobile"></span>   
+                            <label for="">E-MAIL</label>
+                            <input type="text" name="email" id="email" placeholder="Enter E-mail ...." autocomplete="off">
+                            <span class="error_msg" id="error_email"></span>   
+                            <label for="">PASSWORD</label>
+                            <input type="password" name="password" id="password" placeholder="Enter Password ...">
+                            <span class="error_msg" id="error_password"></span>   
+                            <button type="button" onclick="sign_up()">SUBMIT</button>
+                            <span  class="error_msg" id="error_button"></span> 
+                    </form>
+                </div>
+            </div>
+            <div class=" heading" onclick="height2()">
+                <h2>BILLING ADDRESS DETAIL</h2>
+            </div>
+            <div class="row col-1 billing-Address" id="billing__form">
+                <div class="col-2">
+                    <label for="">HOUSE NO./ STREET</label>
+                    <input type="text" name="street" placeholder="enter House Number/Street">
+                    <label for="">CITY</label>
+                    <input type="text" name="city" placeholder="enter city....">
+                </div>
+                <div class="col-2">
+                    <label for="">STATE</label>
+                    <input type="text" name="state" name="enter state..">
+                    <label for="">PINCODE</label>
+                    <input type="number" name="pincode" placeholder="enter pincode..">
+                </div>
+            </div>
+            <div class="heading" onclick="height3()">
+                <h2>PAYMENT MODE</h2>
+            </div>
+            <div class="col-1 payment-mode" id="payment__form">
+                <label for="">Choose Payment Mode option</label>
+                <label for="">COD</label>
+                <input type="radio" name="mode" value="COD">
+                <label for="">PayUmoney</label>
+                <input type="radio" name="mode" value="PayUmoney">
+                <input type="Submit" value="SUBMIT" name="submit">
+            </div>
+        </div>
+        
+        <div class="checkout-order">
+            <div class="heading" style="text-align: center;">
+                <h2>YOUR ORDER</h2>
+            </div>
+                <table>
+                    <tr>
+                        <td>fdfd</td>
+                        <td>fdfdfewew</td>
+                        <td>fdepp</td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+
+
+    <!-- ------------footer-------------------- -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and ios Mobile Phone</p>
+                <div class="app-logo">
+                    <img src="images/play-store.png" alt="">
+                    <img src="images/app-store.png" alt="">
+                </div>
+            </div>
+            <div class="footer-col-2">
+         
+                <H1>SMARTY SHOPPING</H1>
+                <p>Our purpose is to sustainably Make the Pleasure and benefits supports
+                    Accessible to the many.
+                </p>
+            </div>
+            <div class="footer-col-4">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2020 -- BY Kamal</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </footer>
+</body>
+</html>
+
+
+
