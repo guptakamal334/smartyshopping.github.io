@@ -63,7 +63,7 @@
 </div>
 <?php 
 echo "<pre>";
-print_r($_SESSION['cart']);
+print_r($_SESSION);
 ?>
 
     

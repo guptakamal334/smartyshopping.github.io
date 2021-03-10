@@ -3,56 +3,6 @@
   if(count($_SESSION['cart'])==0){
     header('location:index.php');
   }
-
-  $total_amt=0;
-  if(isset($_POST['submit'])){
-      $address=get_safe_value($con,$_POST['street']);
-      $city=get_safe_value($con,$_POST['city']);
-      $state=get_safe_value($con,$_POST['state']);
-      $pincode=get_safe_value($con,$_POST['pincode']);
-      $user_id=$_SESSION['USER_ID'];
-      $payment_mode=get_safe_value($con,$_POST['mode']);
-      if($_POST['mode']=='COD'){
-          $payment_status='Success';
-      }else{
-        $payment_status='pending';
-      }
-      $order_status='pending';
-      date_default_timezone_set("Asia/kolkata");
-      $date=date("Y-m-d H:i:sa");
-      
-
-      foreach($_SESSION['cart'] as $key=>$val){
-          $product=get_product($con,'','',$key);
-          $price=$product[0]['price'];
-          $qty=$val['qty'];
-          $total_amt=$total_amt+($qty*$price);
-      }
-      $total_price=$total_amt;
-   
-      mysqli_query($con,"insert into `order`(user_id,address,city,state,pincode,payment_type,payment_status,order_status,added_on,total_price) values('$user_id','$address','$city','$state','$pincode','$payment_mode','$payment_status','$order_status','$date','$total_price')");
-
-      
-
-      $order_id=mysqli_insert_id($con);
-
-      foreach($_SESSION['cart'] as $key=>$val){
-        $product=get_product($con,'','',$key);
-        $price=$product[0]['price'];
-        $qty=$val['qty'];
-        $price=$price*$qty;
-        mysqli_query($con,"insert into `order_detail`(order_id,product_id,qty,price) values('$order_id','$key','$qty','$price')");
-    }
-    // header('header:index.php');
-    unset($_SESSION['cart']);
-    ?>
-	<script>
-		window.location.href='thank.php';
-	</script>
-	<?php
-
-
-  }
 ?>
 
     <div class="path">
@@ -112,7 +62,6 @@
             ?>
             <div class="row col-1 billing-Address" id="billing__form">
                 <div class="col-2">
-                    <form method="post">
                     <label for="">HOUSE NO./ STREET</label>
                     <input type="text" name="street" placeholder="enter House Number/Street">
                     <label for="">CITY</label>
@@ -140,7 +89,6 @@
                 <input type="radio" name="mode" value="PayUmoney">
                 <input type="Submit" value="SUBMIT" name="submit">
             </div>
-            </form>
             <?PHP }?>
         </div>
         

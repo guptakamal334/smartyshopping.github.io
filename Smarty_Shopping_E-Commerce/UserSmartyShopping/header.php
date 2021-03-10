@@ -39,8 +39,7 @@
         <?php
             if(isset($_SESSION['USER_LOGIN'])) {
                 echo "<a href='logout.php'><i class='fas fa-sign-out-alt'></i>Log Out</a>";
-                echo '<a href="order.php"><i class="fas fa-user"></i>'.$_SESSION['USER_NAME'].'</a>';
-            
+                echo '<a href=""><i class="fas fa-sign-out-alt"></i>YOUR ORDER</a>';
             } else {
                 echo "<a href='signin.php'><i class='fas fa-sign-in-alt'></i>Sign In</a>";
                 echo "<a href='signup.php'><i class='fas fa-user-plus'></i>Sign Up</a>";    
