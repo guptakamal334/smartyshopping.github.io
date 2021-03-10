@@ -1,7 +1,7 @@
 <?php
   require('header.php');
-  if($_SESSION['USER_LOGIN']=='yes'){
-    header("location:index.php");
+  if(isset($_SESSION['USER_ID'])){
+    header('location:index.php');
   }
 ?>
    <div class="path">
