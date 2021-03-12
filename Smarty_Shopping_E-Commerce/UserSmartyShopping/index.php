@@ -99,7 +99,11 @@
                 <div class="price">
                     <h4><i class="fas fa-rupee-sign"></i><?php echo $list['price'];?></h4>
                     <h5><del><i class="fas fa-rupee-sign"></i><?php echo $list['mrp'];?></del></h5>
-                    <h5>10% Off</h5>
+                    <h5> 
+                    <?php 
+                        $discount=($list['mrp']-$list['price'])/$list['price']*100;
+                        echo round($discount)." off";
+                    ?></h5>
                 </div>
                 <div class="btn card">
                     <a href=""><i class="far fa-heart"></i>Sort</a>
