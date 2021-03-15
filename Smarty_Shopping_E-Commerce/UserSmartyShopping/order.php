@@ -18,7 +18,7 @@
             <th>ADDRESS</th>
             <th>PAYMENT TYPE</th>
             <TH>PAYMENT STATUS</TH>
-            <TH>ORDER STATUS</TH>
+            <TH>ORDER STATU</TH>
         </tr>       
         <tr>
             <td></td>
