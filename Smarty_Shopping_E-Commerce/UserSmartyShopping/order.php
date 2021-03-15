@@ -35,12 +35,12 @@ if(!isset($_SESSION['USER_LOGIN'])){
             while($row=mysqli_fetch_assoc($res)){
         ?>
         <tr>
-            <a href="order_detail.php?id=<?php echo $row['id'];?>"><td><?php echo $row['id'];?></td>
+            <a href="order_detail.php?id=<?php echo $row['id'];?>"><td><?php echo $row['id'];?></td></a>
             <td><?php echo $row['added_on'];?></td>
             <td><?php echo $row['address'].",".$row['city'].",".$row['state'].",".$row['pincode'];?></td>
             <td><?php echo $row['payment_type'];?></td>
             <td><?php echo $row['payment_status'];?></td>
-            <td><?php echo $row['order_status'];?></td></a>
+            <td><?php echo $row['order_status'];?></td>
         </tr>
         <?php } ?>
     </table>
