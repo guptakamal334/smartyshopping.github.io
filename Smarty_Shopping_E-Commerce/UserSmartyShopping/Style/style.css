@@ -767,6 +767,13 @@ textarea{
 }
 
 
+/* ----------------------my order page------------------ */
+/* table .order_page{
+    border: 1px solid rgb(118, 197, 221);
+} */
+tr td a {
+    cursor: pointer;
+}
 
 
 
