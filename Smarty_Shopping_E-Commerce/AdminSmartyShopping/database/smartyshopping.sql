@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2021 at 03:24 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Mar 15, 2021 at 08:47 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -58,10 +59,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `categories`, `status`) VALUES
-(2, 'Cat4', 0),
-(3, 'Cat1', 1),
-(5, 'Cat6', 1),
-(7, 'Cat9', 0);
+(10, 'SHIRT', 1),
+(11, 'T-SHIRT', 1),
+(12, 'PENT', 1),
+(13, 'FOOTWEAR', 1);
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,90 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`id`, `name`, `email`, `mobile`, `comment`, `added_on`) VALUES
-(1, 'Vishal', 'vishal@gmail.com', '1234567890', 'Test Query', '2020-01-14 00:00:00');
+(78, 'fdf', 'f', 'f', 'f', '2021-02-10 07:11:32'),
+(79, 'fdf', 'f', 'f', 'f', '2021-02-10 07:12:25'),
+(80, 'fdf', 'f', 'f', 'f', '2021-02-10 07:12:56'),
+(81, 'fdf', 'f', 'f', 'f', '2021-02-10 07:13:18'),
+(82, 'fdf', 'f', 'f', 'f', '2021-02-10 07:13:20'),
+(83, 'fdf', 'f', 'f', 'f', '2021-02-10 07:13:22'),
+(84, 'fdf', 'f', 'f', 'f', '2021-02-10 07:13:24'),
+(85, 'fdf', 'fd', 'fd', 'fd', '2021-02-10 07:13:56'),
+(86, 'fdf', 'fdf', 'fd', 'fdf', '2021-02-10 07:14:47'),
+(87, 'fdf', 'fdf', 'fd', 'fdf', '2021-02-10 07:15:07'),
+(88, 'fdf', 'fdf', 'fd', 'fdf', '2021-02-10 07:15:37'),
+(89, 'fdf', 'fdf', 'fd', 'fdf', '2021-02-10 07:15:44'),
+(90, 'fdf', 'fdf', 'fd', 'fdffdfd', '2021-02-10 07:15:47'),
+(91, 'fdfdf', 'fdfd', 'dfdfd', 'fdfd', '2021-02-10 07:16:19'),
+(92, 'fdfdf', 'fdfd', 'dfdfd', 'fdfd', '2021-02-10 07:16:20'),
+(93, 'fdfdf', 'fdfd', 'dfdfd', 'fdfd', '2021-02-10 07:16:21'),
+(94, 'fdfdf', 'fdfd', 'dfdfd', 'fdfd', '2021-02-10 07:16:21'),
+(95, 'fdfdf', 'fdfd', 'dfdfd', 'fdfd', '2021-02-10 07:16:22'),
+(96, 'fdfdf', 'fdfd', 'dfdfd', 'fdfd', '2021-02-10 07:16:22'),
+(97, 'fdfdf', 'fdfd', 'dfdfd', 'fdfd', '2021-02-10 07:16:22'),
+(98, 'fdfd', 'fdf', 'fd', 'fd', '2021-02-10 07:28:07'),
+(99, 'fdfd', 'fdf', 'fd', 'fd', '2021-02-10 07:28:33'),
+(100, 'fdfd', 'fdf', 'fd', 'fd', '2021-02-10 07:28:34'),
+(101, 'fdfd', 'fdf', 'fdfdf', 'fd', '2021-02-10 07:28:39'),
+(102, 'fdfd', 'fdf', 'fdfdf', 'fdf', '2021-02-10 07:28:45'),
+(103, 'fdfd', 'fdf', 'fdfdf', 'fdf', '2021-02-10 07:28:47'),
+(104, 'fd', 'fd', 'fd', 'dfd', '2021-02-10 07:29:52'),
+(105, 'fd', 'fd', 'fd', 'dfd', '2021-02-10 07:29:53'),
+(106, 'fd', 'fd', 'fd', 'dfd', '2021-02-10 07:30:17'),
+(107, 'fdf', 'fd', 'fdf', 'fdfd', '2021-02-10 07:36:15'),
+(108, 'fd', 'fd', 'fd', 'fd', '2021-02-10 07:46:36'),
+(109, 'fd', 'fd', 'fdf', 'fd', '2021-02-10 08:25:02'),
+(110, '1', '1', '1', '1', '2021-02-12 08:43:02'),
+(111, 'fff', 'dd', 'f', 'dd', '2021-02-12 08:45:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order`
+--
+
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `state` varchar(20) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `pincode` int(11) NOT NULL,
+  `payment_type` varchar(20) NOT NULL,
+  `total_price` float NOT NULL,
+  `payment_status` varchar(20) NOT NULL,
+  `order_status` varchar(20) NOT NULL,
+  `added_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id`, `user_id`, `address`, `state`, `city`, `pincode`, `payment_type`, `total_price`, `payment_status`, `order_status`, `added_on`) VALUES
+(1, 48, '1', '1', '1', 1, 'COD', 450, 'Success', 'pending', '2021-03-06 21:07:27'),
+(2, 48, '11', '11', '11', 111111, 'COD', 1000, 'Success', 'pending', '2021-03-12 21:50:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_detail`
+--
+
+CREATE TABLE `order_detail` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `price` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `qty`, `price`) VALUES
+(1, 1, 89, 1, 450),
+(2, 2, 90, 1, 1000);
 
 -- --------------------------------------------------------
 
@@ -112,21 +196,15 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `categories_id`, `name`, `mrp`, `price`, `qty`, `image`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `status`) VALUES
-(1, 5, '1', 2, 3, 4, '49428269_WhatsApp Image 2021-01-18 at 7.45.26 PM.jpeg', '5', '6', '7', '', '9', 1),
-(4, 5, 'test', 100, 99, 12, '727864583_2018_4image_15_14_018245767336-ll.jpg', 'test', 'test', 'test', 'test', 'test', 1),
-(5, 7, 'test33', 100, 98, 8, '708794487_64-1.jpg', 'test', 'test', 'test', '', 'test', 1),
-(6, 5, 'dd', 4, 4, 4, '69323468_', 's', 's', 's', 's', 's', 1),
-(7, 5, 'ee', 4, 4, 4, '40439570_', 's', 's', 's', 's', 's', 1),
-(8, 5, 'ff', 4, 4, 4, '50304539_', 's', 's', 's', 's', 's', 1),
-(9, 3, 'pp', 1, 2, 3, 'path.jp', 'e', 'ee', '33', '22', '22', 0),
-(10, 3, 'qqqqqqq', 1, 1, 1, '2854438_002.jpg', '1', '1', '1', '11', '1', 1),
-(11, 5, 'eerer', 3, 6, 6, '2049818_001.jpg', '66', '6', '66', '6', '67', 1),
-(12, 2, 'ttt', 2, 2, 2, '4218565_001.jpg', '2', '2', '2', '22', '2', 1),
-(13, 2, 'w', 1, 1, 1, '95855395_WhatsApp Image 2021-01-18 at 6.52.34 PM (1).jpeg', '2', '2', '2', '2', '2', 1),
-(14, 3, '23', 2, 22, 2, '52608121_WhatsApp Image 2021-01-18 at 7.45.27 PM (1).jpeg', '22', '2', '2', '2', '2', 1),
-(15, 2, 'f', 22, 22, 2, '52677376_26.jpg', 'qq', 'q', 'q', 'q', 'q', 1),
-(16, 9, 'sdsdsdsdsdsdsdsds sd sd sds dsd s', 2, 22, 2, '63109863_IMG_20200220_174336.jpg', 'w', 'ww', 'w', 'w', 'w', 0),
-(17, 0, 'ww', 2, 2, 2, '3224990_001.jpg', '22', '2', '2', '22', '2', 1);
+(84, 10, 'SHIRT WITH SKY BLUE Color', 500, 400, 10, '98304222_5.jpeg,93902575_4.jpeg,29537904_3.jpeg,49086179_2.jpeg,98838551_1.jpeg', 'Good Shirt', 'Description dfdkrrui reiroewowe', 'Meta Title', 'Meta Description', 'Meta Keyword', 1),
+(85, 11, 'DOT GREEN SHIRT WITH GREEN COLOUR', 700, 500, 10, '39420363_5g.jpeg,72136073_4g.jpeg,58290478_3g.jpeg,37129445_2g.jpeg,73816234_1g.jpeg', 'DFDSF FDF DFD DF', 'FDFDSFDFDSFDS DF DFDF DF DFD', 'dfdf fdf fd df f dfdsfdf', 'ffdfdrerewfdsfdsd', 'fdfdsfdrerwr', 1),
+(86, 10, 'Shirt Printed', 1000, 700, 20, '81011149_b.jpeg,53428118_4chap.jpeg,45745690_3chap.jpeg,39619162_2cha.jpeg,17938811_a.jpeg', 'fdfdfd dfdf dfdfdf fdftrtrttr uy iuytfdfi', '0ujroi', 'uirjeoiruo', 'iriifieeiwre reirencre ere', 'ieureioo', 1),
+(87, 10, 'Dark Line Shirt', 800, 600, 10, '33082341_6printed.jpeg,25915577_5printed.jpeg,48180207_4printed.jpeg,91978489_3printed.jpeg,21337615_2printed.jpeg,70707826_1printed.jpeg', 'ureioeu reorieuriwe re iUWIEUIR RIEJR OIwu', 'jreiFIERUEROER RIER EIJ', 'fjierue ie er eirjewiro ererewjriew rrnnfdkferuew fnfi1', 'reiwrueworeu eor er frjfnfneirj ew', 'jueriwejrehrjfnf ej ewri rio', 1),
+(88, 10, 'Plain Green Shirt', 1200, 1000, 15, '40351524_6simgre.jpeg,86696616_5sigree.jpeg,40390360_5simplgr.jpeg,41671698_2simplegreen.jpeg,43911608_1sigreen.jpeg', 'sdffd djf dkjf dj', 'jfdjkf', 'efjdfj', 'iefjdrj efi', 'jefjd fi', 1),
+(89, 10, 'Shirt with Red and Black', 500, 450, 10, '50456584_6redlin.jpeg,71448821_5redlin.jpeg,70259492_4redlin.jpeg,41758298_3redlin.jpeg,76462997_2rdl.jpeg,16650643_1redlin.jpeg', 'dfd short Description', 'fkjd ei deresidjf f dkfdfowrueoru', 'reoruewrkej roi', 'ejroker eirjer eirjerjoekrjefkodjfdfjdkj', 'ifjerkoehrjklnfdgfjdkkghn', 1),
+(90, 10, 'Shirt with black and white', 1300, 1000, 5, '96865383_fd.jpeg,80214201_linb.jpeg,44734333_3bl.jpeg,29443462_blacklin.jpeg,22731202_2blalin.jpeg,54891393_1blackline.jpeg', 'dfdfdsfd', 'df', 'dsfdfd', 'dsfdsfdfdsf', 'fdf', 1),
+(91, 10, 'Plain Shirt with pink colour', 1200, 1000, 20, '18860162_df.jpeg,18872975_pi.jpeg,55853815_fdfplin.jpeg,75688107_2plin.jpeg,74927762_plin2.jpeg,53774048_pi1.jpeg', 'dfkdjrie reor eweiroer', 'ireore rer ierue oriweuror', 'rier ueri erjefdfmoi', 'rrejfdfiroe rruerieo', 'u rier ejefkdfdj ewiorje', 1),
+(92, 0, '', 0, 0, 0, 'IMG_20200127_151648.jpg', '', '', '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -151,10 +229,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `address`, `added_on`, `status`) VALUES
 (1, 'Vishal Gupta', '', 'vishal@gmail.com', '9837560918', 'Sec-62 Noida Gautam Buddha Nagar (UP)', '2020-01-14 00:00:00', 1),
-(2, 'deepak gupta', 'df', 'deepakguptag222@gmail.com', '09560949582', 'kh 131 budh vihar behrampur ghaziabad, ghaziabad', '0000-00-00 00:00:00', 1),
-(5, 'kamal', '', 'gupta@gmail.com', '+9198586', 'deli', '0000-00-00 00:00:00', 1),
-(7, 'Ilma', '', 'ilma@gmail.comm', '9837560918', 'delhi', '2021-01-20 06:10:10', 1),
-(8, 'Manoj', '', 'manoj@123', '986', '954', '2021-01-20 06:38:03', 1);
+(2, 'deepak gupta', 'df', 'deepakguptag222@gmail.com', '09560944343', 'kh 131 budh vihar behrampur ghaziabad, ghaziabad', '0000-00-00 00:00:00', 1),
+(5, 'kamal', '', 'gupta@gmail.com', '+9198586', 'deli', '0000-00-00 00:00:00', 0),
+(48, '1', '1', '1', '1', '', '2021-02-27 07:42:26', 0),
+(49, 'Kamal Gupta', '123', 'guptakamal@123', '95555899891', '', '2021-03-11 04:37:41', 0),
+(50, 'Kamal Gupta', 'user', 'user', '9555899891', '', '2021-03-12 05:24:27', 0);
 
 --
 -- Indexes for dumped tables
@@ -176,6 +255,18 @@ ALTER TABLE `categories`
 -- Indexes for table `contact_us`
 --
 ALTER TABLE `contact_us`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_detail`
+--
+ALTER TABLE `order_detail`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -204,25 +295,37 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
