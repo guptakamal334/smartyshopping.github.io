@@ -30,12 +30,14 @@ if(!isset($_SESSION['USER_LOGIN'])){
         </tr>       
         <?php
             $uid=$_SESSION['USER_ID'];
-            $res=mysqli_query($con,"select * from `order` where user_id='$uid'");
+            $res=mysqli_query($con,"select order.*,order_status.name as order_status from `order`, order_status where order.user_id='$uid' and order.order_status=order_status.id");
+           
+            echo "select order.*,order_status.name as order_status from `order`, order_status where order.user_id='$uid' and order.order_status=order_status.id";
             
             while($row=mysqli_fetch_assoc($res)){
         ?>
         <tr>
-            <a href="order_detail.php?id=<?php echo $row['id'];?>"><td><?php echo $row['id'];?></td></a>
+            <td><a href="order_detail.php?id=<?php echo $row['id'];?>"><?php echo $row['id'];?></a></td>
             <td><?php echo $row['added_on'];?></td>
             <td><?php echo $row['address'].",".$row['city'].",".$row['state'].",".$row['pincode'];?></td>
             <td><?php echo $row['payment_type'];?></td>

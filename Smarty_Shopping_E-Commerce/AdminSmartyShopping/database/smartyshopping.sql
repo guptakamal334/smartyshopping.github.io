@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2021 at 08:47 AM
+-- Generation Time: Mar 16, 2021 at 09:11 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -135,7 +135,7 @@ CREATE TABLE `order` (
   `payment_type` varchar(20) NOT NULL,
   `total_price` float NOT NULL,
   `payment_status` varchar(20) NOT NULL,
-  `order_status` varchar(20) NOT NULL,
+  `order_status` int(20) NOT NULL,
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -144,8 +144,11 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`id`, `user_id`, `address`, `state`, `city`, `pincode`, `payment_type`, `total_price`, `payment_status`, `order_status`, `added_on`) VALUES
-(1, 48, '1', '1', '1', 1, 'COD', 450, 'Success', 'pending', '2021-03-06 21:07:27'),
-(2, 48, '11', '11', '11', 111111, 'COD', 1000, 'Success', 'pending', '2021-03-12 21:50:39');
+(3, 48, '110', 'Uttar pradesh', 'ghaziabad', 201009, 'COD', 2000, 'Success', 2, '2021-03-16 12:26:43'),
+(4, 48, 'C311', 'Uttar pradesh', 'Noida', 201301, 'PayUmoney', 1600, 'pending', 0, '2021-03-16 12:29:27'),
+(5, 50, 'A 515?A Sangam Vihar', 'Delhi', 'North Delhi', 110082, 'PayUmoney', 2500, 'pending', 0, '2021-03-16 12:36:32'),
+(6, 50, '230 Akbarpur Behrampour', 'Uttar pradesh', 'Ghaziabad', 201009, 'COD', 3000, 'Success', 1, '2021-03-16 12:37:42'),
+(7, 50, '111', '1', '1', 1, 'COD', 500, 'Success', 1, '2021-03-16 13:25:30');
 
 -- --------------------------------------------------------
 
@@ -166,8 +169,39 @@ CREATE TABLE `order_detail` (
 --
 
 INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `qty`, `price`) VALUES
-(1, 1, 89, 1, 450),
-(2, 2, 90, 1, 1000);
+(3, 3, 90, 1, 1000),
+(4, 3, 91, 1, 1000),
+(5, 4, 85, 1, 500),
+(6, 4, 86, 1, 700),
+(7, 4, 84, 1, 400),
+(8, 5, 85, 1, 500),
+(9, 5, 87, 1, 600),
+(10, 5, 84, 1, 400),
+(11, 5, 88, 1, 1000),
+(12, 6, 90, 3, 3000),
+(13, 7, 85, 1, 500);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_status`
+--
+
+CREATE TABLE `order_status` (
+  `id` int(11) NOT NULL,
+  `order_status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_status`
+--
+
+INSERT INTO `order_status` (`id`, `order_status`) VALUES
+(1, 'pending'),
+(2, 'Processing'),
+(3, 'shipped'),
+(4, 'canceled'),
+(5, 'complete');
 
 -- --------------------------------------------------------
 
@@ -228,11 +262,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `address`, `added_on`, `status`) VALUES
-(1, 'Vishal Gupta', '', 'vishal@gmail.com', '9837560918', 'Sec-62 Noida Gautam Buddha Nagar (UP)', '2020-01-14 00:00:00', 1),
-(2, 'deepak gupta', 'df', 'deepakguptag222@gmail.com', '09560944343', 'kh 131 budh vihar behrampur ghaziabad, ghaziabad', '0000-00-00 00:00:00', 1),
-(5, 'kamal', '', 'gupta@gmail.com', '+9198586', 'deli', '0000-00-00 00:00:00', 0),
 (48, '1', '1', '1', '1', '', '2021-02-27 07:42:26', 0),
-(49, 'Kamal Gupta', '123', 'guptakamal@123', '95555899891', '', '2021-03-11 04:37:41', 0),
 (50, 'Kamal Gupta', 'user', 'user', '9555899891', '', '2021-03-12 05:24:27', 0);
 
 --
@@ -307,13 +337,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `product`

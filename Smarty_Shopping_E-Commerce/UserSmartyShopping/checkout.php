@@ -17,7 +17,7 @@
       }else{
         $payment_status='pending';
       }
-      $order_status='pending';
+      $order_status='1';
       date_default_timezone_set("Asia/kolkata");
       $date=date("Y-m-d H:i:sa");
       
