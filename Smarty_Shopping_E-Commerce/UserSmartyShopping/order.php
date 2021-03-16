@@ -26,7 +26,7 @@ if(!isset($_SESSION['USER_LOGIN'])){
             <th>ADDRESS</th>
             <th>PAYMENT TYPE</th>
             <TH>PAYMENT STATUS</TH>
-            <TH>ORDER STATUS</TH>
+            <TH>ORDER STATU</TH>
         </tr>       
         <?php
             $uid=$_SESSION['USER_ID'];
