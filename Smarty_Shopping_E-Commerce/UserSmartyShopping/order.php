@@ -26,13 +26,16 @@ if(!isset($_SESSION['USER_LOGIN'])){
             <th>ADDRESS</th>
             <th>PAYMENT TYPE</th>
             <TH>PAYMENT STATUS</TH>
-            <TH>ORDER STATU</TH>
+            <TH>ORDER STATUS</TH>
         </tr>       
         <?php
             $uid=$_SESSION['USER_ID'];
-            $res=mysqli_query($con,"select order.*,order_status.name as order_status from `order`, order_status where order.user_id='$uid' and order.order_status=order_status.id");
+            $res=mysqli_query($con,"select `order`.*,order_status.name as order_status_str from `order`,order_status where `order`.user_id='$uid' and order_status.id=`order`.order_status");
+
+            // '' vs ``
+            // $res=mysqli_query($con,"select 'order'.*,order_status.name as order_status_str from `order`,order_status where 'order'.user_id='$uid' and order_status.id='order'.order_status");
            
-            echo "select order.*,order_status.name as order_status from `order`, order_status where order.user_id='$uid' and order.order_status=order_status.id";
+           
             
             while($row=mysqli_fetch_assoc($res)){
         ?>
@@ -42,7 +45,7 @@ if(!isset($_SESSION['USER_LOGIN'])){
             <td><?php echo $row['address'].",".$row['city'].",".$row['state'].",".$row['pincode'];?></td>
             <td><?php echo $row['payment_type'];?></td>
             <td><?php echo $row['payment_status'];?></td>
-            <td><?php echo $row['order_status'];?></td>
+            <td><?php echo $row['order_status_str'];?></td>
         </tr>
         <?php } ?>
     </table>

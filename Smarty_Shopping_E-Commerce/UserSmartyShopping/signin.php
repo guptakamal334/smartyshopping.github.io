@@ -1,6 +1,6 @@
 <?php
   require('header.php');
-  if($_SESSION['USER_LOGIN']=='yes'){
+  if(isset($_SESSION['USER_LOGIN'])){
     header("location:index.php");
   }
 ?>
