@@ -44,7 +44,7 @@
       <a href="index.php" class="a"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
       <a href="category.php" class="a"><i class="fas fa-cogs"></i><span>Category</span></a>
       <a href="product.php" class="a" ><i class="fas fa-table"></i><span>Product</span></a>
-      <a href="#" class="a"><i class="fas fa-th"></i><span>Order</span></a>
+      <a href="order.php" class="a"><i class="fas fa-th"></i><span>Order</span></a>
       <a href="customer.php" class="a"><i class="fas fa-info-circle"></i><span>Customer</span></a>
       <a href="contact.php" class="a"><i class="fas fa-sliders-h"></i><span>Contact</span></a>
       </div>
@@ -59,7 +59,7 @@
       <a href="index.php" class="a"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
       <a href="category.php" class="a"><i class="fas fa-cogs"></i><span>Category</span></a>
       <a href="product.php" class="a" ><i class="fas fa-table"></i><span>Product</span></a>
-      <a href="#" class="a"><i class="fas fa-th"></i><span>Order</span></a>
+      <a href="order.php" class="a"><i class="fas fa-th"></i><span>Order</span></a>
       <a href="customer.php" class="a"><i class="fas fa-info-circle"></i><span>Customer</span></a>
       <a href="contact.php" class="a"><i class="fas fa-sliders-h"></i><span>Contact</span></a>
     </div>
