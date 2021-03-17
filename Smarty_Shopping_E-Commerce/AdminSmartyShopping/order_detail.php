@@ -26,7 +26,8 @@ $order_id=get_safe_value($con,$_GET['id']);
         </tr>    
         <?php 
             
-            $res=mysqli_query($con,"select order_detail.*,product.name,product.image,`order`.* from order_detail,product,`order` where order_detail.order_id='$order_id' and order_detail.product_id=product.id and `order`.id=order_detail.id");
+            $res=mysqli_query($con,"select order_detail.*,product.name,product.image,`order`.* from order_detail,product,`order` where order_detail.order_id='$order_id' and order_detail.product_id=product.id and order_detail.order_id=`order`.id");
+
 			$total_price=0;
 			while($row=mysqli_fetch_assoc($res)){
             $address=$row['address'];
@@ -84,6 +85,7 @@ $order_id=get_safe_value($con,$_GET['id']);
                     </td>
                     <td colspan="2">
                         <input type="submit" Value="submit"></input>
+
                      
                     </td>
                 </form>
