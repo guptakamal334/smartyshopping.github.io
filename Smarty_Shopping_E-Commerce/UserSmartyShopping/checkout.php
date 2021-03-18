@@ -29,9 +29,14 @@
       $total_price=$total_amt;
 
       $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
-   
+      
+      if($_POST['mode']=='COD'){
       mysqli_query($con,"insert into `order`(user_id,address,city,state,pincode,payment_type,payment_status,order_status,added_on,total_price,txnid) values('$user_id','$address','$city','$state','$pincode','$payment_mode','$payment_status','$order_status','$date','$total_price','$txnid')");
+      }
 
+      if($_POST['mode']=='PayUmoney'){
+        mysqli_query($con,"insert into `order`(user_id,address,city,state,pincode,payment_type,order_status,added_on,total_price,txnid) values('$user_id','$address','$city','$state','$pincode','$payment_mode','$order_status','$date','$total_price','$txnid')");
+      }
       
 
       $order_id=mysqli_insert_id($con);
@@ -99,7 +104,7 @@
 		}
 
 
-		$formHtml ='<form method="post" name="payuForm" id="payuForm" action="'.$action.'"><input type="hidden" name="key" value="'.$MERCHANT_KEY.'" /><input type="hidden" name="hash" value="'.$hash.'"/><input type="hidden" name="txnid" value="'.$posted['txnid'].'" /><input name="amount" type="hidden" value="'.$posted['amount'].'" /><input type="hidden" name="firstname" id="firstname" value="'.$posted['firstname'].'" /><input type="hidden" name="email" id="email" value="'.$posted['email'].'" /><input type="hidden" name="phone" value="'.$posted['phone'].'" /><textarea name="productinfo" style="display:none;">'.$posted['productinfo'].'</textarea><input type="hidden" name="surl" value="'.SITE_PATH.'payment_complete.php" /><input type="hidden" name="furl" value="'.SITE_PATH.'payment_fail.php"/><input type="submit" style="display:none;"/></form>';
+		$formHtml ='<form method="post" name="payuForm" id="payuForm" action="'.$action.'"><input type="hidden" name="key" value="'.$MERCHANT_KEY.'" /><input type="hidden" name="hash" value="'.$hash.'"/><input type="hidden" name="txnid" value="'.$posted['txnid'].'" /><input name="amount" type="hidden" value="'.$posted['amount'].'" /><input type="hidden" name="firstname" id="firstname" value="'.$posted['firstname'].'" /><input type="hidden" name="email" id="email" value="'.$posted['email'].'" /><input type="hidden" name="phone" value="'.$posted['phone'].'" /><textarea name="productinfo" style="display:none;">'.$posted['productinfo'].'</textarea><input type="hidden" name="surl" value="'.SITE_PATH.'/UserSmartyShopping/payment_complete.php" /><input type="hidden" name="furl" value="'.SITE_PATH.'/UserSmartyShopping/payment_fail.php"/><input type="submit" style="display:none;"/></form>';
 		echo $formHtml;
 		echo '<script>document.getElementById("payuForm").submit();</script>';
 	}else{	

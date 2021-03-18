@@ -1,6 +1,6 @@
 <?php
-require('connection.inc.php');
-require('functions.inc.php');
+require('connection_inc.php');
+require('function_inc.php');
 echo '<b>Transaction In Process, Please do not reload</b>';
 
 $payment_mode=$_POST['mode'];
@@ -35,7 +35,7 @@ if($sentHashString != $posted_hash){
 	mysqli_query($con,"update `order` set payment_status='$status', mihpayid='$pay_id' where txnid='$txnid'");
 	?>
 	<script>
-		window.location.href='thank_you.php';
+		window.location.href='thank.php';
 	</script>
 	<?php	
 }
