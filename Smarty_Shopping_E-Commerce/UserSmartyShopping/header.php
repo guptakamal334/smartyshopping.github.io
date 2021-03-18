@@ -11,6 +11,15 @@
     while($row=mysqli_fetch_assoc($cat_res)){
         $cat_arr[]=$row;	
     }
+
+    // for search box
+    $search_str='';
+    // $search_str=get_safe_value($con,$_GET['search_str']);
+    
+    if(isset($_GET['$search_str']) && $_GET['search_str']!=''){
+        $search_str=get_safe_value($con,$_GET['search_str']);    
+        
+    }
 ?>
 
 
@@ -55,8 +64,8 @@
             <a href="index.php"><h2><b> SMARTY SHOPPING</b></h2></a>
         </div> 
         <div class="search-box">
-            <form action="">
-                <input type="text" placeholder="Enter Search...."/>
+            <form action="search.php" method="get">
+                <input type="text" name="search_str" value="<?php echo $search_str;?>"placeholder="Enter Search...."/>
                 <input type="submit" name="search" value="SEARCH" />
             </form>
         </div>
