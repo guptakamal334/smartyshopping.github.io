@@ -12,4 +12,16 @@ define('PRODUCT_IMAGE_SITE_PATH',SITE_PATH.'/media/product/');
 // echo PRODUCT_IMAGE_SERVER_PATH;
 
 
+// Visitor Counter 
+
+
+$visitorArr=mysqli_fetch_assoc(mysqli_query($con,"select visitor_count from visitor "));
+$visit=$visitorArr['visitor_count'];
+// echo $visit;
+mysqli_query($con,"update visitor set visitor_count=$visit+1 where id='1'");
+// $visitor_count
+// $userArr=mysqli_fetch_assoc(mysqli_query($con,"select * from users"));
+// print_r($userArr['name']);
+
+
 ?>
