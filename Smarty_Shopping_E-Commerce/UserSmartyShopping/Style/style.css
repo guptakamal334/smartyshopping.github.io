@@ -340,6 +340,18 @@ footer .copyright{
     padding: 10px;
     font-size: 20px;
 }
+.cat_title{
+    position: relative;
+}
+select.drop_down{
+    position: absolute;
+    right: 2%;
+    margin: 25px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 2px solid #43cbd4;
+
+}
 
 /* ----------------------single Product Details---------------------- */
 .col-2{

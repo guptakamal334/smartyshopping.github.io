@@ -271,3 +271,10 @@ function manage_cart(pid,type){
 
 
 
+function select(cat_id,site_path){
+    var select_id=jQuery("#select_id").val();
+    window.location.href=site_path+"/UserSmartyShopping/category.php?id="+cat_id+"&sort="+select_id;
+}
+
+
+

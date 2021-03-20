@@ -1,17 +1,43 @@
 <?php
   require('header.php');
+  $price_high_selected="";
+  $price_low_selected="";
+  $first_selected="";
+  $old_selected="";
+  $sort_order="";
+    if(isset($_GET['sort'])){
+      $sort=get_safe_value($con,$_GET['sort']);
+      if($sort=='Price_low'){
+          $sort_order= "order by product.price asc";
+          $price_low_selected="selected";
+      }
+      if($sort=='Price_high'){
+          $sort_order= "order by product.price desc";
+          $price_high_selected="selected";
+      }
+      if($sort=='sort_first'){
+          $sort_order= "order by product.id asc";
+          $first_selected="selected";
+      }
+      if($sort=='sort_old'){
+          $sort_order= "order by product.id desc";
+          $old_selected="selected";
+      }
+  }
   if(isset($_GET['id']) && $_GET['id']!=''){
       $cat_id=get_safe_value($con,$_GET['id']);
     //   $cat_name=get_safe_value($con,$_GET['cat_name']);
       
         if($cat_id>0){
-            $get_product=get_product($con,'',$cat_id);
+            $get_product=get_product($con,'',$cat_id,'','',$sort_order);
         }else{
             header('location:index.php');
         }
   }else {
     header('location:index.php');
   }
+
+
 ?>
     <!-- ------------------path----------------------------- -->
 <div class="path">
@@ -24,7 +50,16 @@
     <?php 
         if(count($get_product)>0){ 
     ?>
-  <h2 class="title"><?php echo $get_product[0]['categories'];?></h2>
+    <div class="row">
+        <h2 class="title"><?php echo $get_product[0]['categories'];?></h2>
+         <select onchange="select('<?php echo $cat_id;?>','<?php echo SITE_PATH;?>')" id="select_id" class="drop_down">
+            <option value="">Default Sorting</option>
+             <option value="Price_low" <?php echo $price_low_selected;?>>Sort by Price Low To High</option>
+             <option value="Price_high" <?php echo $price_high_selected;?>>Sort by Price High To Low</option>
+              <option value="sort_first" <?php echo $first_selected;?>>Sort by new First</option>
+             <option value="sort_old" <?php echo $old_selected;?>>Sort by old first</option>
+        </select>
+    </div>
   <div class="row">
         <?php 
             

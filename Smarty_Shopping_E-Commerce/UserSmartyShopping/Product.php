@@ -62,8 +62,7 @@
     </div>
 </div>
 <?php 
-echo "<pre>";
-print_r($_SESSION);
+
 ?>
 
     
@@ -71,91 +70,42 @@ print_r($_SESSION);
     <div class="small-containerr">
         <h2 class="title">Related Product </h2>
         <div class="row">
-            <div class="col-4">
-                <img src="images/product-1.jpg" alt="">
-                <div class="cardDetail">
-                      <h4>Red Printed T-Shirt</h4>
-                      <div class="rating">
-                          <li class="fa fa-star"></li>
-                          <li class="fa fa-star"></li>
-                          <li class="fa fa-star"></li>
-                          <li class="fa fa-star"></li>    
-                      </div>
-                      <div class="price">
-                          <h4><i class="fas fa-rupee-sign"></i>50.00</h4>
-                          <h5><del><i class="fas fa-rupee-sign"></i>60.00</del></h5>
-                          <h5>10% Off</h5>
-                      </div>
-                      <div class="btn card">
-                          <a href=""><i class="far fa-heart"></i>Sort</a>
-                          <a href=""><i class="fas fa-shopping-cart"></i>Add Cart</a>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-4">
-              <img src="images/product-1.jpg" alt="">
-              <div class="cardDetail">
-                    <h4>Red Printed T-Shirt</h4>
-                    <div class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>    
-                    </div>
-                    <div class="price">
-                        <h4><i class="fas fa-rupee-sign"></i>50.00</h4>
-                        <h5><del><i class="fas fa-rupee-sign"></i>60.00</del></h5>
-                        <h5>10% Off</h5>
-                    </div>
-                    <div class="btn card">
-                        <a href=""><i class="far fa-heart"></i>Sort</a>
-                        <a href=""><i class="fas fa-shopping-cart"></i>Add Cart</a>
-                    </div>
+        <?php 
+            $get_product=get_product($con,'',$get_single_product[0]['categories_id'],'','','',$pro_id);
+                foreach($get_product as $list){       
+                    $imageArr=explode(",",$list['image']);      
+		?>
+       <div class="col-4">
+                <a href="product.php?id= <?php echo $list['id'];?>">
+                    <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$imageArr[0];?>" alt="">
+                </a>
+           <div class="cardDetail">
+                <h4><?php echo $list['name'];?></h4>
+                <div class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fas fa-star-half-alt fa"></li>  
+                    <li class="far fa-star"></li>   
+                </div>
+                <div class="price">
+                    <h4><i class="fas fa-rupee-sign"></i><?php echo $list['price'];?></h4>
+                    <h5><del><i class="fas fa-rupee-sign"></i><?php echo $list['mrp'];?></del></h5>
+                    <h5> 
+                    <?php 
+                        $discount=($list['mrp']-$list['price'])/$list['price']*100;
+                        echo round($discount)." off";
+                    ?></h5>
+                </div>
+                <div class="btn card">
+                    <a href=""><i class="far fa-heart"></i>Sort</a>
+                    <input type="number" value="1" id="qty" class="hide_qty">
+                    <a class="btn-cart" href="javascript:void(0)" onclick="manage_cart('<?php echo $list['id']?>','add')"><i class="fas fa-shopping-cart" ></i> Add Cart</a>
                 </div>
             </div>
-            <div class="col-4">
-                <img src="images/product-1.jpg" alt="">
-                <div class="cardDetail">
-                        <h4>Red Printed T-Shirt lorem12</h4>
-                        <div class="rating">
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>    
-                        </div>
-                        <div class="price">
-                            <h4><i class="fas fa-rupee-sign"></i>50.00</h4>
-                            <h5><del><i class="fas fa-rupee-sign"></i>60.00</del></h5>
-                            <h5>10% Off</h5>
-                        </div>
-                        <div class="btn card">
-                            <a href=""><i class="far fa-heart"></i>Sort</a>
-                            <a href=""><i class="fas fa-shopping-cart"></i>Add Cart</a>
-                        </div>
-                    </div>
-            </div>
-            <div class="col-4">
-                <img src="images/product-1.jpg" alt="">
-                <div class="cardDetail">
-                        <h4>Red Printed T-Shirt</h4>
-                        <div class="rating">
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>    
-                        </div>
-                        <div class="price">
-                            <h4><i class="fas fa-rupee-sign"></i>50.00</h4>
-                            <h5><del><i class="fas fa-rupee-sign"></i>60.00</del></h5>
-                            <h5>10% Off</h5>
-                        </div>
-                        <div class="btn card">
-                            <a href=""><i class="far fa-heart"></i>Sort</a>
-                            <a href=""><i class="fas fa-shopping-cart"></i>Add Cart</a>
-                        </div>
-                    </div>
-            </div>
         </div>
+        <?php } ?>
+    </div>
     </div>
            
  <?php
