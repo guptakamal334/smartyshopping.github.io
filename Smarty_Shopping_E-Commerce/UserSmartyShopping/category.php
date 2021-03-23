@@ -50,9 +50,9 @@
     <?php 
         if(count($get_product)>0){ 
     ?>
+    <h2 class="title"><?php echo $get_product[0]['categories'];?></h2>
     <div class="row ">
-        <div class="cat_title">
-            <h2 class="title"><?php echo $get_product[0]['categories'];?></h2>
+        
             <select onchange="select('<?php echo $cat_id;?>','<?php echo SITE_PATH;?>')" id="select_id" class="drop_down">
                 <option value="">Default Sorting</option>
                 <option value="Price_low" <?php echo $price_low_selected;?>>Sort by Price Low To High</option>
@@ -60,7 +60,7 @@
                 <option value="sort_first" <?php echo $first_selected;?>>Sort by new First</option>
                 <option value="sort_old" <?php echo $old_selected;?>>Sort by old first</option>
             </select>
-        </div>
+        
     </div>
   <div class="row">
         <?php 
