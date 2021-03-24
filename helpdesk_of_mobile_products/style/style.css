@@ -6,6 +6,40 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+.head{
+    display: flex;
+    /* align-items:; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    background-color: green;
+    
+}
+.head img{
+    width: 100px;
+    height: 100px;
+}
+nav{
+    background-color: paleturquoise;   
+    margin-bottom: -15px;
+    
+}
+nav ul{
+    display: flex;
+    list-style-type: none;
+    padding: 20px 20px; 
+}
+nav ul li a{
+    padding: 20px 20px;
+    /* border:2px solid black */
+    z-index: 1;
+}
+nav ul li a:hover{
+    text-decoration: none;
+    background-color: palevioletred;
+    color: white;
+}
 .carousel-item img{
-    height: 600px;
+    height: 500px;
 }
