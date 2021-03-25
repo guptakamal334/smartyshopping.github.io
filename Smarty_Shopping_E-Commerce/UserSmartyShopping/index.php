@@ -51,7 +51,7 @@
           <span class="glyphicon glyphicon-chevron-right"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
+    </div>
  <!-------------------- Featured Categories ----------------------->
 <div class="categories">
   <div class="small-container">
