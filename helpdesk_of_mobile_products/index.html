@@ -22,9 +22,9 @@
         <nav>
             <ul>
                 <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">CONTACT US</a></li>
-                <li><a href="#">LOGIN</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT US</a></li>
+                <li><a href="login.html">LOGIN</a></li>
             </ul>
         </nav>
     </header>
@@ -73,7 +73,7 @@
 
 
 <!-- ----------------------About Section----------------------- -->
-   <div class="about">
+   <div class="about" id="about">
      <h2 class="title">ABOUT US</h2>
      <P>
       The aim of this project is to design database management for help desk, which is
@@ -98,15 +98,15 @@
    </div>
 
    <!-- -----------------------------contact Us------------------------ -->
-<div class="contact">
+<div class="contact" id="contact">
     <h2 class="title">CONTACT US</h2>
     <div class="row">
-        <div class="col-2">
-            <div id="googleMap" style="width:100%;height:400px"></div>
+        <div class="colu-2">
+            <img src="media/contact.jpg" alt="contact page">
         </div>
-        <div class="col-2">
-            <label for="">NAME</label>
-            <input type="text" name="name" placeholder="Enter name....."><br>
+        <div class="colu-2">
+            <label for="name">NAME</label>
+            <input type="text" name="name" id="name" placeholder="Enter name....."><br>
             <label for="">MOBILE</label>
             <input type="text" name="mobile" placeholder="Enter Mobile Number....."><br>
             <label for="">EMAIL</label>
@@ -151,7 +151,6 @@
             </div>
             <hr>
             <p class="copyright">Copyright 2021 -- BY Kamal</p>
-        
     </footer>
 </body>
 </html>
