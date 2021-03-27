@@ -86,7 +86,7 @@ nav ul li a:hover{
 .contact{
     padding: 10px 30px ;
     width: 100%;
-    background-color: rgb(82, 163, 136);
+    
 }
 .row{
     display: flex;
@@ -107,7 +107,32 @@ nav ul li a:hover{
 }
 .colu-2 input , textarea{
     width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid transparent;
 }
+.colu-2 input:focus , textarea:focus{
+    border: 2px solid  rgb(201, 246, 243);
+}
+
+.colu-2 input[type=submit]{
+    margin-top: 10px;
+    background: rgb(201, 246, 243);
+    padding: 15px;
+    outline: none;
+    border: none;
+}
+.colu-2 input[type=submit]:hover{
+    background: transparent;
+    border: 2px solid rgb(201, 246, 243);
+}
+
+.colu-2 label{
+    margin-top: 15px;
+
+}
+
 
 
 /* -----------------------------footer seciton-------------------------------- */
@@ -168,6 +193,7 @@ html {
 .login{
     padding: 10px 20px;
 }
+
 .path{
     width: 100%;
     height: 100px;
