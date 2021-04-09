@@ -40,97 +40,97 @@
 
 // ----------------------------check--Out---form-------------------------------------
 
-//     var MenuItems1=document.getElementById("check__form");
-//     MenuItems1.style.maxHeight="20px";
-//     function height1(){
-//         if(MenuItems1.style.maxHeight=="20px")
-//         {
-//             MenuItems1.style.maxHeight="500px";
-//         }
-//         else
-//         {
-//             MenuItems1.style.maxHeight="20px";
-//         }
-//     }
+    var MenuItems1=document.getElementById("check__form");
+    MenuItems1.style.maxHeight="20px";
+    function height1(){
+        if(MenuItems1.style.maxHeight=="20px")
+        {
+            MenuItems1.style.maxHeight="500px";
+        }
+        else
+        {
+            MenuItems1.style.maxHeight="20px";
+        }
+    }
 
 
-//     var MenuItems2=document.getElementById("billing__form");
-//     MenuItems2.style.maxHeight="20px";
-//     function height2(){
-//         if(MenuItems2.style.maxHeight=="20px")
-//         {
-//             MenuItems2.style.maxHeight="500px";
-//         }
-//         else
-//         {
-//             MenuItems2.style.maxHeight="20px";
-//         }
-//     }
+    var MenuItems2=document.getElementById("billing__form");
+    MenuItems2.style.maxHeight="20px";
+    function height2(){
+        if(MenuItems2.style.maxHeight=="20px")
+        {
+            MenuItems2.style.maxHeight="500px";
+        }
+        else
+        {
+            MenuItems2.style.maxHeight="20px";
+        }
+    }
 
 
 
-//     var MenuItems3=document.getElementById("payment__form");
-//     MenuItems3.style.maxHeight="20px";
-//     function height3(){
-//         if(MenuItems3.style.maxHeight=="20px")
-//         {
-//             MenuItems3.style.maxHeight="500px";
-//         }
-//         else
-//         {
-//             MenuItems3.style.maxHeight="20px";
-//         }
-//     }
+    var MenuItems3=document.getElementById("payment__form");
+    MenuItems3.style.maxHeight="20px";
+    function height3(){
+        if(MenuItems3.style.maxHeight=="20px")
+        {
+            MenuItems3.style.maxHeight="500px";
+        }
+        else
+        {
+            MenuItems3.style.maxHeight="20px";
+        }
+    }
 
 
-// // ---------------------contact Us form--------------------------
+// ---------------------contact Us form--------------------------
 
-// function send_message() {
-//     // jQuery('.error').html('');
-//     var name =jQuery("#name").val();
-//     var mobile =jQuery("#mobile").val();
-//     var email =jQuery("#email").val();
-//     var query =jQuery("#query").val();
-//     var is_error='';
-//     if(name==''){
-//         jQuery('#error_name').html('Please Enter Name');
-//         is_error='yes';
-//     }else{
-//         jQuery('#error_name').html('');
-//     }
-//     if(mobile==''){
-//         jQuery('#error_mobile').html('Please Enter Mobile');
-//         is_error='yes';
-//     }else{
-//         jQuery('#error_mobile').html('');
-//     }
-//     if(email==''){
-//         jQuery("#error_email").html('Please Enter email');
-//         is_error='yes';
-//     }else{
-//         jQuery("#error_email").html('');
-//     }
-//     if(query==''){
-//         jQuery("#error_query").html('Please Enter query');
-//         is_error='yes';
-//     }else{
-//         jQuery("#error_query").html('');
-//     }
-//     if(is_error==''){
-//         jQuery.ajax({
-//             url:'send_message.php',
-//             type:'post',
-//             data:'name='+name+'&mobile='+mobile+'&email='+email+'&query='+query,
-//             success:function (result){
+function send_message() {
+    // jQuery('.error').html('');
+    var name =jQuery("#name").val();
+    var mobile =jQuery("#mobile").val();
+    var email =jQuery("#email").val();
+    var query =jQuery("#query").val();
+    var is_error='';
+    if(name==''){
+        jQuery('#error_name').html('Please Enter Name');
+        is_error='yes';
+    }else{
+        jQuery('#error_name').html('');
+    }
+    if(mobile==''){
+        jQuery('#error_mobile').html('Please Enter Mobile');
+        is_error='yes';
+    }else{
+        jQuery('#error_mobile').html('');
+    }
+    if(email==''){
+        jQuery("#error_email").html('Please Enter email');
+        is_error='yes';
+    }else{
+        jQuery("#error_email").html('');
+    }
+    if(query==''){
+        jQuery("#error_query").html('Please Enter query');
+        is_error='yes';
+    }else{
+        jQuery("#error_query").html('');
+    }
+    if(is_error==''){
+        jQuery.ajax({
+            url:'send_message.php',
+            type:'post',
+            data:'name='+name+'&mobile='+mobile+'&email='+email+'&query='+query,
+            success:function (result){
                 
-//                     jQuery('#error_button').html(result);
-//                     // alert(result);
-//                     jQuery('#contact')[0].reset();
+                    jQuery('#error_button').html(result);
+                    // alert(result);
+                    jQuery('#contact')[0].reset();
              
-//             }
-//         })
-//     }
-// }
+            }
+        })
+    }
+}
 
 
 // ------------------------------------------for signup Form------------------------

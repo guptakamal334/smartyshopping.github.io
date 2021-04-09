@@ -15,7 +15,7 @@ body{
     align-items: center;
     padding: 5px 20px;
     text-transform: uppercase;
-    background-color: green;
+    background-color: rgb(133, 221, 224);
     
 }
 .head img{
@@ -51,7 +51,7 @@ nav ul li a:hover{
     text-align: center;
     margin: 0 auto 30px;
     line-height: 60px;
-    color: #555;
+    color: rgb(130, 214, 214);
     position: relative;
 }
 .title::after{
@@ -77,9 +77,18 @@ nav ul li a:hover{
     transform: translateX(-50%) rotate(50deg);
 }
 
+.about{
+    padding: 30px 20px ;
+    height: 90vh;
+    background-color: #9acfcd7c;
+}
+
+
 .about p{
     margin: 10px 30px;
-    line-height: 30px;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: justify;
 }
 
 /* ------------------------contact Us------------------- */
@@ -97,7 +106,8 @@ nav ul li a:hover{
 .row .colu-2{
     flex-basis: 50%;
     min-width: 300px;
-    padding: 20px;
+    padding: 0px 20px;
+    /* border: 2px solid black; */
     
 }
 .colu-2 img{
@@ -110,27 +120,37 @@ nav ul li a:hover{
     padding: 10px;
     border-radius: 5px;
     outline: none;
-    border: 2px solid transparent;
-}
-.colu-2 input:focus , textarea:focus{
     border: 2px solid  rgb(201, 246, 243);
 }
+.colu-2 input:focus , textarea:focus{
+    border: 3px solid  rgb(201, 246, 243);
+}
 
-.colu-2 input[type=submit]{
+.colu-2 input[type=submit],.colu-2 button{
     margin-top: 10px;
     background: rgb(201, 246, 243);
     padding: 15px;
     outline: none;
-    border: none;
+    border: 2px solid rgb(201, 246, 243);
+    font-size: 20px;
+    width: 100%;
+    margin-top: 10px;
 }
-.colu-2 input[type=submit]:hover{
+.colu-2 input[type=submit]:hover, button:hover{
     background: transparent;
     border: 2px solid rgb(201, 246, 243);
+    outline: none;
+
 }
 
 .colu-2 label{
-    margin-top: 15px;
+    margin-top: 0;
+    margin-left: 0px;
 
+}
+.error_msg{
+    color: red;
+    
 }
 
 
@@ -189,26 +209,38 @@ html {
 }
 
 
-/* -------------------------Login Page------------------------- */
-.login{
-    padding: 10px 20px;
-}
-
+/* -------------------------path------------------------ */
 .path{
     width: 100%;
-    height: 100px;
-    background-color: burlywood;
+    height: 40px;
+    background-color: rgb(237, 243, 243);
 }
 .path span{
     text-align: center;
     display: block;
-    line-height: 80px;
+    line-height: 40px;
 }
 .path span a{ 
     text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
+    font-weight: 900px;
     text-align: center;
-    color: black;
+    color: rgb(48, 47, 47);
 }
+.path span a:hover{ 
+    color: rgb(115, 194, 194);
+}
+
+
+/* ---------------status ----------------- */
+.login {
+    margin: 30px;
+}
+
+
+/* ---------------status ----------------- */
+/* .login input, label{
+    margin: 30px;
+} */
 
 
