@@ -20,7 +20,7 @@
             $id=get_safe_value($con,$_GET['id']);
             $delete_sql="delete from categories where id='$id'";
             mysqli_query($con,$delete_sql);
-        }
+        } 
   }
   $sql="select * from categories order by id desc";
   $res=mysqli_query($con,$sql);

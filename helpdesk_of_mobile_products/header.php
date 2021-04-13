@@ -1,6 +1,6 @@
 <?php 
 require('connection_inc.php');
-// require('function_inc.php');
+require('function_inc.php');
 ?>
 
 <head>
@@ -37,8 +37,8 @@ require('connection_inc.php');
             <?php }else{
                  ?>
                  <li><a href="status.php">HOME</a></li>
-                 <li><a href="login.php">Add Problem</a></li>
-                 <li><a href="login.php">Added Problems</a></li>
+                 <li><a href="mobile_product.php">PRODUCT REPORT</a></li>
+                 <li><a href="login.php">FD</a></li>
                  <li><a href="login.php">Add Request</a></li>
                  <li><a href="logout.php">Logout</a></li>
                 <?php 

@@ -244,3 +244,51 @@ html {
 } */
 
 
+/* --------------------------Mobile Product--------------------------- */
+.search form{
+    position: absolute;
+    right: 70px;
+}
+.search form input[type="submit"]{
+    background-color: skyblue;
+}
+.search form input {
+    border: 2px solid skyblue;
+    padding: 10px;
+    border-radius: 5px;
+}
+.mobile_product table,tr,th,td{
+    text-align: center;
+    border: 2px solid skyblue;
+}
+.mobile_product table{
+    margin: 80px auto 0px auto;
+    width: 95%;
+}
+.mobile_product table tr th{
+    padding: 10px;
+}
+.mobile_product table tr td{
+    padding: 8px;
+}
+
+  .mobile_product table tr td a{
+    padding:5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.mobile_product table tr td a.view{
+    background-color: rgb(201, 246, 243);
+}
+.mobile_product table tr td a.add_problem{
+    background-color: rgb(201, 246, 243);
+}
+
+/* --------------------add problem------------------------ */
+.add_prob label{
+    font-weight: 700;
+}
+
+
+
+
