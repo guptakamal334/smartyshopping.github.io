@@ -261,6 +261,10 @@ html {
     text-align: center;
     border: 2px solid skyblue;
 }
+.mobile_product td{
+    text-align: center;
+    border: 2px solid skyblue;
+}
 .mobile_product table{
     margin: 80px auto 0px auto;
     width: 95%;
@@ -285,9 +289,44 @@ html {
 }
 
 /* --------------------add problem------------------------ */
-.add_prob label{
-    font-weight: 700;
+.problem_form{
+    width: 95%;
+    margin: auto;
+    background-color: rgb(201, 246, 243);
+    padding: 20px;
 }
+.problem_form label{
+    font-weight: 700;
+    padding: 20px 0;
+    width: 200px;
+    /* border: 2px solid black; */
+}
+.problem_form span{
+    display: inline-block;
+    padding: 20px 10px 0;
+    width: 200px;
+    /* border: 2px solid black; */
+}
+.problem_form span select ,textarea{
+    width: 100%;
+}
+.problem_form input[type="submit"],input[type="reset"]{
+    margin-top: 20px;
+    background: rgb(159, 226, 226);
+    padding: 15px;
+    outline: none;
+    border: 2px solid rgb(123, 175, 172);
+    font-size: 20px;
+    width: 100%;
+}
+
+.problem_form input[type="submit"]:hover,input[type="reset"]:hover{
+    background: transparent;
+    border: 2px solid rgb(12, 12, 12);
+    outline: none;
+}
+
+
 
 
 
