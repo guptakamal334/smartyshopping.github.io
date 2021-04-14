@@ -37,14 +37,20 @@
         <span><?php echo $row['expire_date'];?></span> 
         <br>
         <label for="">Problem Title</label>
-        <span><select name="" id="">
-          <option value="">kamal</option>
-        </select></span>
+        <span>
+        <select id="" name="problem_title">
+                        <option >Select Problem Title...</option>
+                        <?php
+                          $sql=mysqli_query($con,"select * from problem_title");
+                          while($row=mysqli_fetch_assoc($sql)){
+                              echo "<option value=".$row['id'].">".$row['name']."</option>";
+                          }
+                        ?>
+                    </select>
+        </span>
         <label for="">Problem Category</label>
-        <span><select name="" id="">
-          <option value="">kamal</option>
-          <option value="">kamal</option>
-          <option value="">kamal</option>
+        <span><select name="" id="problem_category">
+          <option value="">Select Problem Category.....</option>
         </select></span>  <br>
         <label for="">Problem Description</label>
       
@@ -61,3 +67,20 @@
 <?php
     require('footer.php');
 ?>
+
+<!-- <script>
+          $(document).ready(function(){
+              jQuery('#problem_title').change(function(){
+                var id=jQuery('#problem_title').val();
+                alert("dfdfd");
+                  jQuery.ajax({
+                        type:'post',
+                        url:'get_problem_title',
+                        data:'id='+id,
+                        success:function(result){
+                            jQuery('#problem_category').append(result);
+                        }
+                  });
+              }
+              });
+    </script> -->
