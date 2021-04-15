@@ -69,24 +69,20 @@
         <span><?php echo $expire_date;?></span> 
         <br>
         
-        <label for="">Problem Title</label>
+        <label for="">Status</label>
         <span>
-          <select name="problem_tit" id="problem_title" required>
-              <option value="">Select Problem Title...</option>
+          <select name="problem_status" id="problem_status" required>
+              <option value="">Select Problem Status...</option>
                 <?php
-                  $sql=mysqli_query($con,"select * from problem_title");
+                  $sql=mysqli_query($con,"select * from problem_status");
                   while($row=mysqli_fetch_assoc($sql)){
-                      echo "<option value=".$row['id'].">".$row['name']."</option>";
+                      echo "<option value=".$row['id'].">".$row['status_name']."</option>";
                       }
                 ?>
           </select>
         </span>
-        <label for="">Problem Category</label>
-        <span>
-          <select name="problem_cat" id="problem_category" required>
-            <option value="">Select Problem Category.....</option>
-          </select>
-        </span>  <br> 
+        
+          <br> 
         <label for="">Problem Description</label>
       
         <textarea name="description" id="" cols="30" rows="5" required></textarea>
