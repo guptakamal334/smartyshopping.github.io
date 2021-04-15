@@ -55,7 +55,7 @@
           <td><?php echo $row['curr_time'];?></td>
           <td><?php echo $row['status_name'];?></td>
           <td>
-              <a class="view" href="product_detail.php?request_no=<?php echo $row['request_no']?>">Update Status</a>
+              <a class="view" href="update_status.php?request_no=<?php echo $row['request_no']?>">Update Status</a>
               
           </td>
        </tr>
