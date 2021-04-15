@@ -8,7 +8,7 @@
 			$res=mysqli_query($con,$sql);
 			$html='';
 			while($list=mysqli_fetch_assoc($res)){
-				$html.='<option value='.$list['id'].'>'.$list['name'].'</option>';
+				$html.='<option value='.$list['id'].'>'.$list['cat_name'].'</option>';
 				
 			}
 			echo $html;

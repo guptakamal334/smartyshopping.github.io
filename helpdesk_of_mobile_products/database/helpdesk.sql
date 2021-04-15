@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2021 at 09:34 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Apr 15, 2021 at 03:54 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -118,8 +117,16 @@ CREATE TABLE `problem` (
   `problem_description` varchar(200) NOT NULL,
   `problem_status_id` int(11) NOT NULL,
   `curr_time` datetime NOT NULL,
-  `delivery_date` date NOT NULL
+  `delivery_date` date NOT NULL,
+  `request_no` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `problem`
+--
+
+INSERT INTO `problem` (`problem_id`, `product_id`, `problem_title_id`, `problem_category_id`, `problem_description`, `problem_status_id`, `curr_time`, `delivery_date`, `request_no`) VALUES
+(11, 1, 2, 5, 'plz repair the phone', 1, '2021-04-15 18:37:38', '0000-00-00', 'REQ74566');
 
 -- --------------------------------------------------------
 
@@ -129,7 +136,7 @@ CREATE TABLE `problem` (
 
 CREATE TABLE `problem_category` (
   `id` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL,
+  `cat_name` varchar(30) NOT NULL,
   `pro_title_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -137,7 +144,7 @@ CREATE TABLE `problem_category` (
 -- Dumping data for table `problem_category`
 --
 
-INSERT INTO `problem_category` (`id`, `name`, `pro_title_id`) VALUES
+INSERT INTO `problem_category` (`id`, `cat_name`, `pro_title_id`) VALUES
 (1, 'update phone', 1),
 (2, 'soft phone', 1),
 (3, 'mic', 2),
@@ -152,14 +159,14 @@ INSERT INTO `problem_category` (`id`, `name`, `pro_title_id`) VALUES
 
 CREATE TABLE `problem_status` (
   `id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL
+  `status_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `problem_status`
 --
 
-INSERT INTO `problem_status` (`id`, `name`) VALUES
+INSERT INTO `problem_status` (`id`, `status_name`) VALUES
 (1, 'Pending'),
 (2, 'Processing'),
 (3, 'Success'),
@@ -287,7 +294,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `problem`
 --
 ALTER TABLE `problem`
-  MODIFY `problem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `problem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `problem_category`

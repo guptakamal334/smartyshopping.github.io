@@ -28,14 +28,16 @@
           $problem_category=get_safe_value($con,$_GET['problem_cat']);
           $description=get_safe_value($con,$_GET['description']);
           $status=1;
+          $request_no="REQ".rand(10000,100000);
           date_default_timezone_set('Asia/Kolkata');
           $currentTime = date( 'Y-m-d H:i:s');
           
-          mysqli_query($con,"insert into problem (product_id,problem_title_id,problem_category_id,problem_description,problem_status_id,curr_time) values ('$problem_title','$problem_category','$description','$status','$currentTime')");
+          mysqli_query($con,"insert into problem (product_id,problem_title_id,problem_category_id,problem_description,problem_status_id,curr_time,request_no) values ('$product_id','$problem_title','$problem_category','$description','$status','$currentTime','$request_no')");
 
 
-          echo "insert into problem (product_id,problem_title_id,problem_category_id,problem_description,problem_status_id,curr_time) values ('$product_id','$problem_title','$problem_category','$description','$status','$currentTime')";
-          echo "your Request send Successfull";
+          // echo "insert into problem (product_id,problem_title_id,problem_category_id,problem_description,problem_status_id,curr_time) values ('$product_id','$problem_title','$problem_category','$description','$status','$currentTime')";
+
+          echo "your Request has been added Successfull and your Request Number is ".$request_no;
 
           
         }

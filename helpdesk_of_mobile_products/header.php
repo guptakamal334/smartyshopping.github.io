@@ -36,11 +36,10 @@ require('function_inc.php');
                 <li><a href="login.php">LOGIN</a></li>
             <?php }else{
                  ?>
-                 <li><a href="status.php">HOME</a></li>
-                 <li><a href="mobile_product.php">PRODUCT REPORT</a></li>
-                 <li><a href="login.php">FD</a></li>
-                 <li><a href="login.php">Add Request</a></li>
-                 <li><a href="logout.php">Logout</a></li>
+                 <li><a href="header.php">HOME</a></li>
+                 <li><a href="mobile_product.php">ALL PRODUCTS</a></li>
+                 <li><a href="added_problems.php">ADDED PROBLEMS REPORT</a></li>
+                 <li><a href="logout.php">LOGOUT</a></li>
                 <?php 
                 }
                 ?>
