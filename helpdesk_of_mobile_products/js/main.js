@@ -99,20 +99,24 @@ function sign_in() {
 
 
 
-
-<script>
-          $(document).ready(function(){
-              jQuery('#problem_title').change(function(){
-                var id=jQuery('#problem_title').val();
-                alert("dfdfd");
-                  jQuery.ajax({
-                        type:'post',
-                        url:'get_problem_title',
-                        data:'id='+id,
-                        success:function(result){
-                            jQuery('#problem_category').append(result);
-                        }
-                  });
+// ----------------------------------select problem Title & problem category--------------------------
+$(document).ready(function(){
+    jQuery('#problem_title').change(function(){
+      var id=jQuery('#problem_title').val();
+      
+      if(id==''){
+        jQuery('#problem_category').html('<option value="">Select Problem Category....</option>'); 
+      }else{
+        jQuery('#problem_category').html('<option value="">Select Problem Category....</option>'); 
+              jQuery.ajax({
+              type:'post',
+              url:'get_problem_title.php',
+              data:'id='+id,
+              success:function(result){
+                // alert(result);
+                  jQuery('#problem_category').append(result);
               }
-              });
-    </script>
+        });
+      }
+    });
+  });

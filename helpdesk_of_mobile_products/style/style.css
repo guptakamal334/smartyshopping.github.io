@@ -319,6 +319,9 @@ html {
     font-size: 20px;
     width: 100%;
 }
+.problem_form input.product_id{
+    display: none;
+}
 
 .problem_form input[type="submit"]:hover,input[type="reset"]:hover{
     background: transparent;
