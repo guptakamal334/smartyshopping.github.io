@@ -39,7 +39,7 @@ nav ul li a{
 }
 nav ul li a:hover{
     text-decoration: none;
-    background-color: palevioletred;
+    background-color: rgb(106, 201, 238);
     color: white;
 }
 .carousel-item img{

@@ -21,6 +21,7 @@
             $curr_date=$row['curr_time'];
             $date_of_purchase=$row['date_of_purchase'];
             $expire_date=$row['expire_date'];
+            
           }else{
               
             // header('location:status.php');  

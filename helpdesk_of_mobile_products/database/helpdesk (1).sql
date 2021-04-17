@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2021 at 10:23 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Apr 17, 2021 at 04:09 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -112,6 +111,17 @@ CREATE TABLE `problem` (
   `request_no` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `problem`
+--
+
+INSERT INTO `problem` (`problem_id`, `product_id`, `alt_number`, `problem_title_id`, `problem_category_id`, `problem_description`, `problem_status_id`, `curr_time`, `deliver`, `delivery_date`, `request_no`) VALUES
+(16, 11, '9837858545', 2, 10, 'mic is not working properly.', 2, '2021-04-17 18:10:55', 0, '0000-00-00 00:00:00', 'REQ38642'),
+(17, 8, '8556569689', 2, 8, 'Mobile display touch is not working properly', 1, '2021-04-17 18:13:06', 0, '0000-00-00 00:00:00', 'REQ21439'),
+(18, 5, '8574521241', 2, 13, 'Mobile Camera Flash light is not working in click picture time . but flash light still working on as a role of tourch.', 3, '2021-04-17 18:19:48', 1, '2021-04-17 18:42:24', 'REQ11440'),
+(19, 7, '8545251325', 1, 17, 'Software update', 1, '2021-04-17 18:20:41', 0, '0000-00-00 00:00:00', 'REQ70422'),
+(20, 3, '8541212415', 2, 13, 'Mobile Camera Flash light is not working in click picture time . but flash light still working on as a role of tourch.', 2, '2021-04-17 19:19:45', 0, '0000-00-00 00:00:00', 'REQ14446');
+
 -- --------------------------------------------------------
 
 --
@@ -136,7 +146,7 @@ INSERT INTO `problem_category` (`id`, `cat_name`, `pro_title_id`) VALUES
 (10, 'Mic', 2),
 (11, 'Sim Connect', 2),
 (12, 'SD Card Connect', 2),
-(13, 'Camra', 2),
+(13, 'Camera', 2),
 (14, 'Flash Light', 2),
 (15, 'Earphone Jack', 2),
 (16, 'Other', 2),
@@ -296,7 +306,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `problem`
 --
 ALTER TABLE `problem`
-  MODIFY `problem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `problem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `problem_category`

@@ -23,7 +23,7 @@
             <span class="error_msg" id="error_username" ></span><br>
 
             <label for="password">PASSWORD</label><br>
-            <input type="text" name="password" id="password" placeholder="Enter Password.....">
+            <input type="password" name="password" id="password" placeholder="Enter Password.....">
             <span class="error_msg" id="error_password" ></span><br>  
               
             <button type="button" onclick="sign_in()">LOGIN</button>

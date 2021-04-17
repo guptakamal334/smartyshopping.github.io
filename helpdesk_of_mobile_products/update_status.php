@@ -21,6 +21,7 @@
             $curr_date=$row['curr_time'];
             $date_of_purchase=$row['date_of_purchase'];
             $expire_date=$row['expire_date'];
+            $alt_number=$row['alt_number'];
           }else{
               header('location:home.php');
               die();
@@ -80,6 +81,8 @@
         <span><?php echo $problem_category;?></span> 
         <label for="">Added Problem Date</label>
         <span><?php echo $curr_date;?></span> 
+        <label for="">Alternet Number</label>
+        <span><?php echo $alt_number;?></span> 
         <label for="">Description</label>
         <span><?php echo $description;?></span> 
         <br>
