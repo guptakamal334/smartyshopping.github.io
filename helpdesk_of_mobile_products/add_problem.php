@@ -24,6 +24,7 @@
 
         if(isset($_GET['submit'])){
           $product_id=get_safe_value($con,$_GET['product_id']);
+          $alt_number=get_safe_value($con,$_GET['alt_number']);
           $problem_title=get_safe_value($con,$_GET['problem_tit']);
           $problem_category=get_safe_value($con,$_GET['problem_cat']);
           $description=get_safe_value($con,$_GET['description']);
@@ -32,7 +33,7 @@
           date_default_timezone_set('Asia/Kolkata');
           $currentTime = date( 'Y-m-d H:i:s');
           
-          mysqli_query($con,"insert into problem (product_id,problem_title_id,problem_category_id,problem_description,problem_status_id,curr_time,request_no) values ('$product_id','$problem_title','$problem_category','$description','$status','$currentTime','$request_no')");
+          mysqli_query($con,"insert into problem (product_id,problem_title_id,problem_category_id,problem_description,problem_status_id,curr_time,request_no,deliver,alt_number) values ('$product_id','$problem_title','$problem_category','$description','$status','$currentTime','$request_no','0','$alt_number')");
 
 
           // echo "insert into problem (product_id,problem_title_id,problem_category_id,problem_description,problem_status_id,curr_time) values ('$product_id','$problem_title','$problem_category','$description','$status','$currentTime')";
@@ -71,7 +72,8 @@
         <label for="">Warranty Expire Date</label>
         <span><?php echo $expire_date;?></span> 
         <br>
-        
+        <label for="">Alternet Mobile No.</label>
+        <span><input type="number"  name="alt_number" placeholder="Enter Mobile Number" required></span> 
         <label for="">Problem Title</label>
         <span>
           <select name="problem_tit" id="problem_title" required>

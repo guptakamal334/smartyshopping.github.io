@@ -42,7 +42,7 @@
           <td><?php echo $row['imei_no'];?></td>
           <td><?php echo $row['product_name'];?></td>
           <td><?php echo $row['model_no'];?></td>
-          <td><?php echo $row['first_name'].$row['last_name']; ?></td>
+          <td><?php echo $row['title']." ".$row['first_name']." ".$row['last_name']; ?></td>
           <td><?php echo $row['date_of_purchase'];?></td>
           <td><?php echo $row['expire_date'];?></td>
           <td>

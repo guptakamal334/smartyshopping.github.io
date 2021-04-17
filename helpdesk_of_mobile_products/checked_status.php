@@ -22,26 +22,15 @@
             $date_of_purchase=$row['date_of_purchase'];
             $expire_date=$row['expire_date'];
           }else{
-              header('location:home.php');
+              
+            // header('location:status.php');  
+           echo '<SCRipt> alert("Please Enter Valid Request Number")</SCRipt>';
+            
               die();
           }
       }
 
-        if(isset($_GET['submit'])){
-          $request_no=get_safe_value($con,$_GET['request_no']);
-          $problem_status=get_safe_value($con,$_GET['problem_status']);
-          date_default_timezone_set('Asia/Kolkata');
-          $currentTime = date( 'Y-m-d H:i:s');
-          
-          mysqli_query($con,"update problem set problem_status_id='$problem_status' where request_no='$request_no'");
-          echo '<script> alert("Your Problem Status has been Updated");</script>';
-
-          // header('location:added_problems.php');
-         
-          // echo "Your Problem Status has been Updated";
-
-          
-        }
+    
         
        
 ?>
@@ -49,14 +38,14 @@
   <!-- -------------------------path seciton----------------------------- -->
   <div class="path">
           <span>
-            <a href="home.php">Home /</a>  <a href="added_problems.php">Added Problem /</a><a href="#">Update Status </a>
+            <a href="home.php">Home /</a>  <a href="#">Check Status</a> 
           </span>
     </div>
    <!-- -----------------------------Update Status ------------------------ -->
    <div class="login add_prob" >
-     <h2 class="title">UPDATE STATUS</h2>
+     <h2 class="title">CHECK STATUS</h2>
      <div class="problem_form"> 
-     <form action="" method="get">
+ 
         <label for="">Request Number</label>
         <span name='name'><?php echo $request_no;?></span>
         <input class="product_id" type="text" name="request_no" value="<?php echo $request_no;?>">
@@ -82,26 +71,9 @@
         <span><?php echo $curr_date;?></span> 
         <label for="">Description</label>
         <span><?php echo $description;?></span> 
-        <br>
-        
         <label for="">Status</label>
-        <span>
-          <select name="problem_status" id="problem_status" required>
-              <option value="">Select Problem Status...</option>
-                <?php
-                  $sql=mysqli_query($con,"select * from problem_status");
-                  while($row=mysqli_fetch_assoc($sql)){
-                      echo "<option value=".$row['id'].">".$row['status_name']."</option>";
-                      }
-                ?>
-          </select>
-        </span>
-        
-          <br> 
-          <input type="submit" value="Submit" name="submit">
-          <input type="reset" value="Reset">
-         
-       </form>
+        <span><?php echo $row['status_name'];?></span>
+     
     </div>
   </div>
 <?php

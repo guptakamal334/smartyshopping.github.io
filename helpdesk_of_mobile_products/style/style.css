@@ -338,6 +338,17 @@ html {
     background-color: rgb(210, 230, 230) !important;
 }
 
+/* ------------------added problems--------------------- */
+.added_problems span.btn{
+    margin: 10px;
+}
+.added_problems span.active{
+    background-color: rgb(211, 193, 121);
+}
+
+.added_problems span.deactive{
+    background-color: skyblue;
+}
 
 
 

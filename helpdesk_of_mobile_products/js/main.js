@@ -85,7 +85,7 @@ function sign_in() {
                 
                 jQuery('#error_button').html(result);
                alert(result);
-                   window.location.href='header.php';
+                   window.location.href='home.php';
                 // if(window.location.href=='signin.php'){
                 //     window.location.href='index.php';
                 // }else{
