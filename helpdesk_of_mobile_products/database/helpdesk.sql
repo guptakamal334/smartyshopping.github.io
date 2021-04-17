@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2021 at 03:54 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Apr 17, 2021 at 10:23 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -56,28 +57,6 @@ CREATE TABLE `contact_us` (
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `contact_us`
---
-
-INSERT INTO `contact_us` (`id`, `name`, `email`, `mobile`, `comment`, `added_on`) VALUES
-(1, '1', '1', '1', '1', '2021-04-07 07:24:51'),
-(2, 'w', 'w', 'w', 'w', '2021-04-07 07:34:32'),
-(3, 'q', 'q', 'q', 'q', '2021-04-07 07:36:14'),
-(4, 'q', 'q', 'q', 'q', '2021-04-07 07:37:08'),
-(5, 'q', 'q', 'q', 'qfdfd', '2021-04-07 07:37:14'),
-(6, '1', '1', '09555899891', '1', '2021-04-07 04:17:08'),
-(7, '12', '1', '1', '1', '2021-04-07 04:18:26'),
-(8, '1', '1', '09810929386', '1', '2021-04-07 04:20:10'),
-(9, '1', '1', '1', '1', '2021-04-10 04:05:40'),
-(10, '1111', '1', '1', '1', '2021-04-10 04:05:59'),
-(11, '1111', '1', '1', '1', '2021-04-10 04:06:01'),
-(12, '1111', '1', '1', '1', '2021-04-10 04:06:10'),
-(13, '1111', '1', '1', '1', '2021-04-10 04:06:10'),
-(14, '1111', '1', '1', '1', '2021-04-10 04:06:10'),
-(15, '1111', '1', '1', '1', '2021-04-10 04:06:10'),
-(16, '11', '1', '1', '111', '2021-04-10 04:06:21');
-
 -- --------------------------------------------------------
 
 --
@@ -90,7 +69,7 @@ CREATE TABLE `customer` (
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
-  `street` varchar(20) NOT NULL,
+  `street` varchar(30) NOT NULL,
   `city` varchar(20) NOT NULL,
   `state` varchar(20) NOT NULL,
   `pincode` int(10) NOT NULL
@@ -101,7 +80,17 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `title`, `first_name`, `last_name`, `phone_number`, `street`, `city`, `state`, `pincode`) VALUES
-(1, 'Mr.', 'Jay', 'Mata', '9890909090', 'HN 10, Gali no-5', 'Ramur', 'UP', 244901);
+(1, 'Mr.', 'Pawan', 'Mahashwari', '9890909090', 'HN 10, Gali no-5', 'Ramur', 'UP', 244901),
+(2, 'Mr.', 'Deepak', 'Gupta', '9090232112', 'Gali No 5 Sangam Vih', 'South Delhi', 'Delhi', 110090),
+(3, 'Mrs.', 'Mamta', 'devi', '8989782112', 'HN 105, Gali No-1, B', 'Badarpur Border', 'Delhi', 110067),
+(4, 'Mr.', 'Sonu', 'Rana', '8890123223', 'HN-102, Gali No 9', 'Mohan State', 'Delhi', 110090),
+(5, 'Mr.', 'Virendra', 'Yadav', '8900009090', 'Gali No. 10', 'Sarita Vihar', 'Delhi', 110090),
+(6, 'Mr.', 'Risab', 'Thakur', '8976454334', 'Block-A, Maharani Bhag', 'East Delhi', 'Delhi', 110012),
+(7, 'Mr.', 'Roni', 'Tiwari', '7878323232', 'HN.10,Gali No-5, Noida', 'Gautam Buddha Nagar', 'Uttar pradesh', 201301),
+(8, 'Mrs.', 'Ilma', 'Farooqui', '8900001212', 'HN101, First Floor, Okhla', 'East Delhi', ' Delhi', 110076),
+(9, 'Mr. ', 'Kamal', 'Gupta', '95555899890', 'HN. 20, Noida Sec-62', 'Greater Noida', 'Uttar pradesh', 201301),
+(10, 'Mr.', 'Rajesh', 'Kumar', '8989890909', 'HN 10, Gali no-5 , Raj Nagar ', 'Ghazibad', 'Uttar Pradesh', 201009),
+(11, 'Mr.', 'Suraj ', 'Kumar', '98898989898', 'Gali No. 14', 'Noida', 'UP', 201011);
 
 -- --------------------------------------------------------
 
@@ -112,21 +101,16 @@ INSERT INTO `customer` (`customer_id`, `title`, `first_name`, `last_name`, `phon
 CREATE TABLE `problem` (
   `problem_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
+  `alt_number` varchar(20) NOT NULL,
   `problem_title_id` int(11) NOT NULL,
   `problem_category_id` int(11) NOT NULL,
   `problem_description` varchar(200) NOT NULL,
   `problem_status_id` int(11) NOT NULL,
   `curr_time` datetime NOT NULL,
-  `delivery_date` date NOT NULL,
+  `deliver` tinyint(4) NOT NULL,
+  `delivery_date` datetime NOT NULL,
   `request_no` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `problem`
---
-
-INSERT INTO `problem` (`problem_id`, `product_id`, `problem_title_id`, `problem_category_id`, `problem_description`, `problem_status_id`, `curr_time`, `delivery_date`, `request_no`) VALUES
-(11, 1, 2, 5, 'plz repair the phone', 1, '2021-04-15 18:37:38', '0000-00-00', 'REQ74566');
 
 -- --------------------------------------------------------
 
@@ -145,11 +129,20 @@ CREATE TABLE `problem_category` (
 --
 
 INSERT INTO `problem_category` (`id`, `cat_name`, `pro_title_id`) VALUES
-(1, 'update phone', 1),
-(2, 'soft phone', 1),
-(3, 'mic', 2),
-(4, 'jack', 2),
-(5, 'speaker', 2);
+(6, 'Power Off Button', 2),
+(7, 'Volume Button', 2),
+(8, 'Display', 2),
+(9, 'Jack', 2),
+(10, 'Mic', 2),
+(11, 'Sim Connect', 2),
+(12, 'SD Card Connect', 2),
+(13, 'Camra', 2),
+(14, 'Flash Light', 2),
+(15, 'Earphone Jack', 2),
+(16, 'Other', 2),
+(17, 'Software Update', 1),
+(18, 'Apps not working', 1),
+(19, 'Other', 1);
 
 -- --------------------------------------------------------
 
@@ -170,8 +163,7 @@ INSERT INTO `problem_status` (`id`, `status_name`) VALUES
 (1, 'Pending'),
 (2, 'Processing'),
 (3, 'Success'),
-(4, 'Reject'),
-(5, 'Incomplete');
+(4, 'incomplete');
 
 -- --------------------------------------------------------
 
@@ -202,7 +194,7 @@ CREATE TABLE `product` (
   `product_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `imei_no` varchar(20) NOT NULL,
-  `product_name` text NOT NULL,
+  `product_name` varchar(30) NOT NULL,
   `model_no` int(10) NOT NULL,
   `date_of_purchase` date NOT NULL,
   `expire_date` date NOT NULL,
@@ -214,7 +206,17 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `customer_id`, `imei_no`, `product_name`, `model_no`, `date_of_purchase`, `expire_date`, `status_of_product`) VALUES
-(1, 1, '1212121212', 'VIVO V9', 1880, '2020-12-01', '2021-12-16', 0);
+(1, 1, '119890986545312', 'VIVO V9', 1880, '2020-12-01', '2021-12-16', 0),
+(2, 11, '119890986545324', 'Vivo-VX', 9090, '2020-06-01', '2021-06-01', 0),
+(3, 10, '119890986545324', 'Vivo V5', 4432, '2020-08-05', '2021-08-05', 0),
+(4, 2, '119890986577654', 'Vivo 11Pro', 8989, '2020-02-03', '2021-02-03', 0),
+(5, 3, '119890986545390', 'Vivo V11', 2309, '2020-11-30', '2021-11-30', 0),
+(6, 4, '119890986545321', 'Vivo 79', 5451, '2020-10-01', '2021-10-01', 0),
+(7, 5, '119890986587897', 'Vivo 17', 7877, '2021-01-01', '2022-01-01', 0),
+(8, 9, '119890986545333', 'Vivo 11R', 8398, '2020-11-04', '2021-11-04', 0),
+(9, 8, '119890986545776', 'Vivo V5', 8922, '2020-11-30', '2021-11-30', 0),
+(10, 6, '119890986544321', 'Vivo NEXA', 8780, '2020-12-09', '2021-12-09', 0),
+(11, 7, '119890986545022', 'Vivo V1', 3321, '2020-08-05', '2021-08-05', 0);
 
 --
 -- Indexes for dumped tables
@@ -282,25 +284,25 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `problem`
 --
 ALTER TABLE `problem`
-  MODIFY `problem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `problem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `problem_category`
 --
 ALTER TABLE `problem_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `problem_status`
@@ -318,7 +320,7 @@ ALTER TABLE `problem_title`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
